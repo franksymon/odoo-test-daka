@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Heredar la vista de orden de venta para agregar el campo de descuento -->
+    <record id="view_order_form_inherit_promotions" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.promotions</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']//field[@name='product_uom_qty']" position="after">
+                <field name="discount" class="oe_inline"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

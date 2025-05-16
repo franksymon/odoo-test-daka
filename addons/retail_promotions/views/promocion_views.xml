@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Formulario -->
+    <record id="promocion_form_view" model="ir.ui.view">
+        <field name="name">promocion.form</field>
+        <field name="model">retail.promocion</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="o_form_sheet_bg">  
+                    <div class="o_form_sheet"> 
+                        <group>
+                            <field name="name"/>
+                            <field name="active"/>
+                            <field name="descuento"/>
+                            <field name="fecha_inicio"/>
+                            <field name="fecha_fin"/>
+                            <field name="producto_ids" widget="many2many_tags"/>
+                        </group>
+                    </div>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="promocion_list_view" model="ir.ui.view">
+        <field name="name">Promocion List</field>
+        <field name="model">retail.promocion</field>
+        <field name="arch" type="xml">
+            <list string="Promociones">
+                <field name="active" widget="boolean"/>
+                <field name="name" string="Promoción"/>  
+                <field name="descuento" string="Descuento (%)"/>
+                <field name="fecha_inicio" string="Inicio"/>
+                <field name="fecha_fin" string="Fin"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="promocion_kanban_view" model="ir.ui.view">
+        <field name="name">promocion.kanban</field>
+        <field name="model">retail.promocion</field>
+        <field name="type">kanban</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_view">  
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div class="h3">
+                                    <field name="name"/>
+                                </div>
+                                <div>Descuento: <field name="descuento"/>%</div>
+                                <div>Vigencia: 
+                                    <field name="fecha_inicio"/> - 
+                                    <field name="fecha_fin"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+     <record id="promocion_action" model="ir.actions.act_window">
+        <field name="name">Promociones</field>
+        <field name="res_model">retail.promocion</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Crea tu primera promoción</p>
+        </field>
+    </record>
+
+    <menuitem 
+        id="menu_promociones" 
+        name="Promociones" 
+        parent="sale.sale_order_menu"  
+        action="promocion_action"
+        sequence="10"
+    />   
+</odoo>

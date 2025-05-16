@@ -1,0 +1,31 @@
+<odoo>
+    <template id="report_promocion">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="promo">
+                <div class="header">
+                    <h2>Reporte de Promoción: <span t-field="promo.name"/></h2>
+                </div>
+                <div class="body">
+                    <p><strong>Descuento:</strong> <span t-field="promo.descuento"/>%</p>
+                    <p><strong>Vigencia:</strong>
+                        <span t-field="promo.fecha_inicio"/> a <span t-field="promo.fecha_fin"/>
+                    </p>
+                    <h3>Productos incluidos:</h3>
+                    <ul>
+                        <t t-foreach="promo.producto_ids" t-as="product">
+                            <li t-field="product.name"/>
+                        </t>
+                    </ul>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <report
+        id="action_report_promocion"
+        model="retail.promocion"
+        string="Reporte de Promoción"
+        report_type="qweb-pdf"
+        name="retail_promotions.report_promocion"
+    />
+</odoo>
