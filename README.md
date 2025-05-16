@@ -19,7 +19,9 @@ Este documento describe los pasos necesarios para instalar Odoo 18 utilizando Do
     cd <NOMBRE_DEL_REPOSITORIO>
     ```
 
-2.  **Ejecución con Docker Compose:**
+    Depues de clonar el repositorio, crear una carpeta vacia en la raiz del proyecto llamada "postgresql"
+
+3.  **Ejecución con Docker Compose:**
     Desde la raíz del proyecto, donde se encuentra el archivo `docker-compose.yaml`, ejecuta el siguiente comando:
 
     ```bash
@@ -29,7 +31,7 @@ Este documento describe los pasos necesarios para instalar Odoo 18 utilizando Do
     * La primera vez que ejecutes este comando, Docker Compose descargará las imágenes necesarias de Odoo y PostgreSQL. Este proceso puede llevar varios minutos dependiendo de tu conexión a internet.
     * En ejecuciones posteriores, Docker Compose solo iniciará los contenedores existentes, lo que debería tomar solo unos segundos.
 
-3.  **Acceder a Odoo:**
+4.  **Acceder a Odoo:**
     Una vez que los contenedores estén en funcionamiento, abre tu navegador web e ingresa a la siguiente dirección:
 
     ```
@@ -40,7 +42,7 @@ Este documento describe los pasos necesarios para instalar Odoo 18 utilizando Do
     * La **contraseña maestra** (master password) está configurada en el archivo `odoo.conf` y es `admin123`.
     * **Selecciona la casilla "Demo data"** para incluir datos de ejemplo que facilitarán la exploración del sistema y el módulo de promociones.
 
-4.  **Configuración de Odoo:**
+5.  **Configuración de Odoo:**
 
     * **Activar el Modo de Desarrollador:**
         1.  Ve a la sección **Ajustes**.
@@ -62,7 +64,7 @@ Este documento describe los pasos necesarios para instalar Odoo 18 utilizando Do
         2.  Selecciona la pestaña **Ventas**.
         3.  Dentro de la sub-sección **Precios**, asegúrate de que la casilla **Descuentos** esté habilitada. Esto permitirá que los descuentos aplicados a través del módulo de promociones se muestren en las órdenes de venta.
 
-5.  **Creación y Aplicación de Promociones:**
+6.  **Creación y Aplicación de Promociones:**
 
     * **Acceder a la Gestión de Promociones:**
         1.  Dirígete al módulo de **Ventas**.
