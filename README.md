@@ -19,7 +19,7 @@ Este documento describe los pasos necesarios para instalar Odoo 18 utilizando Do
     cd <NOMBRE_DEL_REPOSITORIO>
     ```
 
-    Depues de clonar el repositorio, crear una carpeta vacia en la raiz del proyecto llamada "postgresql"
+    **Depues de clonar el repositorio, crear una carpeta vacia en la raiz del proyecto llamada "postgresql"**
 
 3.  **Ejecución con Docker Compose:**
     Desde la raíz del proyecto, donde se encuentra el archivo `docker-compose.yaml`, ejecuta el siguiente comando:
